@@ -1,0 +1,22 @@
+name: pull
+on:
+  pull_request:
+    branches-ignore:
+      - nightly
+  push:
+    branches:
+      - main
+      - release/*
+      - landchecks/*
+
+permissions: read-all
+
+jobs:
+  t:
+    runs-on: ubuntu-latest;
+    env:
+      RO: ${{ runs-on }}
+    steps:
+      - name: List the env
+        shell: bash
+        run: env
