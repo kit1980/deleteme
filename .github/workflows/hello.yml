@@ -13,7 +13,7 @@ jobs:
     name: "Print Hello"
     runs-on: ubuntu-latest
     env:
-      REF_TYPE: ${{ github.ref_type }}
+      REF_TYPE: ${{ runner.name }}
       RO: ${{ github.runs-on }}
       LIMIT: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}-${{ github.ref_type == 'branch' && github.sha}}
     steps:
