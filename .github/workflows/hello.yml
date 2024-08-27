@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REF_TYPE: ${{ github.ref_type }}
+      RO: ${{ github.runs-on }}
       LIMIT: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}-${{ github.ref_type == 'branch' && github.sha}}
     steps:
       - name: Print Hello
