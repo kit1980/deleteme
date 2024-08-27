@@ -15,9 +15,10 @@ jobs:
     env:
       REF_TYPE: ${{ github.ref_type }}
       LIMIT: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}-${{ github.ref_type == 'branch' && github.sha}}
+      RO: ${{ runs-on }}
     steps:
       - name: Print Hello
-        run: echo "Hello World"
+        run: env; echo "Hello World"
 
       - name: Print on Push to foobar
         if: ${{ github.event_name == 'push' && github.event.ref == 'refs/heads/foobar' }}
