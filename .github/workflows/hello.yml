@@ -13,7 +13,7 @@ jobs:
     name: "Print Hello"
     runs-on: ubuntu-latest
     env:
-      R0: ${{ github.jobs.print_hello.runs-on }}
+      R0: ${{ job }}
       LIMIT: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}-${{ github.ref_type == 'branch' && github.sha}}
     steps:
       - name: Print Hello
