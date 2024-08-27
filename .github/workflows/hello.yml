@@ -15,7 +15,6 @@ jobs:
     env:
       REF_TYPE: ${{ github.ref_type }}
       LIMIT: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}-${{ github.ref_type == 'branch' && github.sha}}
-      RO: ${{ runs-on }}
     steps:
       - name: Print Hello
         run: env; echo "Hello World"
