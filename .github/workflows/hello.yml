@@ -13,12 +13,11 @@ jobs:
     name: "Print Hello"
     runs-on: ubuntu-latest
     env:
-      REF_TYPE: ${{ runner.name }}
       RO: ${{ github.runs-on }}
       LIMIT: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}-${{ github.ref_type == 'branch' && github.sha}}
     steps:
       - name: Print Hello
-        run: env; echo "Hello World"
+        run: env; echo "Hel ${{ runner.name }}"
 
       - name: Print on Push to foobar
         if: ${{ github.event_name == 'push' && github.event.ref == 'refs/heads/foobar' }}
